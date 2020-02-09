@@ -6,19 +6,23 @@
     <title>Quiz</title>
     <link rel="stylesheet" href="stlye.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <header><div class="text-center">Test over in: <span id="time">20:00</span> minutes!</div>
+  <header><div id="timerSpan">Test over in: <span id="time">20:00</span> minutes!</div>
   </header>
 </head>
-<body class="text-center">
+<body>
     <div class="container" id="testBox">
     <div class="jumbotron-fluid">
     <h1>quiz</h1>
+    <div id="qContainer" class="hide">
     <ul class="list-group">
         <li class="list-group-item" id="q1">Question 1</li>
         <li class="list-group-item" id="q2">Question 2</li>
         <li class="list-group-item" id="q3">Question 3</li>
         <li class="list-group-item" id="q4">Question 4</li>
       </ul>
+    </div>
+    <button id="startBtn" class="strtBtnBtn">Start</button>
+
 </div>
 </div>
 </body>
