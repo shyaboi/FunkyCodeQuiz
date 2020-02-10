@@ -35,11 +35,14 @@ var qIndex
 var qEl = document.getElementById('question')
 let qShuffle
 var nexBtn = document.getElementById('nxtBtn')
+var score = 0;
+var body = document.getElementById('aKey')
 // --------------------------------------------------------------------------------------------------------------
 // start/next button even listener
 startBtn.addEventListener('click', quizStart)
 nxtBtn.addEventListener('click', () => {
     qIndex++
+    checkAnswer()
     nextQuest()
 })
 // quiz start button function
@@ -51,6 +54,7 @@ function quizStart() {
     qShuffle = questions.sort(()=> Math.random() - 5)
     // set question index
     qIndex = 0
+    score = 0
     // remove hidden class on question and asnswers
     aContainerEl.classList.remove('hide')
 // finally exe next questions function
@@ -73,6 +77,7 @@ function qPop(question){
         button.classList.add('btn')
         if (answer.correct) {
             button.dataset.correct = answer.correct
+            score++;
         }
         button.addEventListener('click', answerSelec)
         answerBtnsEl.appendChild(button)
@@ -88,11 +93,12 @@ function resetJumbo() {
 }
 
 function answerSelec(e){
-    const selBtn = e.target
-    const correct = selBtn.dataset.correct
+    var selBtn = e.target
+    var correct = selBtn.dataset.correct
     correctStatus(document.body, correct)
     Array.from(answerBtnsEl.children).forEach(button => {
         correctStatus(button, button.dataset.correct)
+        score++
     })
     if (qShuffle.length > qIndex +1){
     nxtBtn.classList.remove('hide')
@@ -103,25 +109,50 @@ function answerSelec(e){
     }
 }
 
-function correctStatus(){}
+function corCount(answer) {
+    if (answer == qShuffle[qIndex].correct){
+    }
+}
+function correctStatus(el, correct){
+    clearCS(el)
+    if(correct){
+        el.classList.add('correct')
+    } else {
+        el.classList.add('wrong')
 
+    }
+}
+
+function checkAnswer(){
+    nxtBtn.addEventListener('click', checkAnswer)
+    if(document.body.classList.contains('my-class-name')){
+        score++
+    }
+   
+}
+ console.log(score)
+ function clearCS(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+
+}
 var questions = [
     {
         question: 'Commonly used data types DO NOT include:',
         answers: [
-        {text:'Strings', correct:false },
-        {text:'Booleans', correct:false},
+        {text:'Strings',},
+        {text:'Booleans',},
         {text:'Alerts', correct:true},
-        {text:'Numbers', correct:false}    
+        {text:'Numbers',}    
     ]
 },
 {
     question: 'The condition in an if/else statement is enclosed within___.',
     answers: [
-    {text:'Quotes', correct:false },
-    {text:'Currly Brackets', correct:false},
+    {text:'Quotes',},
+    {text:'Currly Brackets',},
     {text:'Parentheses', correct:true},
-    {text:'square brackets', correct:false}    
+    {text:'square brackets',}    
 ]
 },
 {
@@ -136,18 +167,20 @@ var questions = [
     question: 'String values must be enclosed within__ when being assigned to variables.',
     answers: [
     {text:'Quotes', correct:true},
-    {text:'Currley Bois', correct:false},
-    {text:'Commas', correct:false },
-    {text:'Parentheses', correct:false}    
+    {text:'Currley Bois',},
+    {text:'Commas',},
+    {text:'Parentheses',}    
 ]
 },
 {
     question: 'A very useful tool used during development and debugging for printing content to the debugger is:',
     answers: [
-    {text:'Javascript', correct:false},
-    {text:'Terminal/Bash', correct:false},
-    {text:'For Loops', correct:false },
+    {text:'Javascript',},
+    {text:'Terminal/Bash',},
+    {text:'For Loops',},
     {text:'Console.log', correct:true}    
 ]
 },
 ]
+
+

@@ -3,6 +3,12 @@
     
 }
 
+:root {
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -45,4 +51,22 @@ width: 100%;
 
 .hide {
     display: none;
+}
+
+.btn {
+    --hue: var(--hue-neutral);
+    border: 2px solid hsl(var(--hue), 100%, 30%);
+    background-color: hsl(var(--hue), 100%, 50%);
+    color: wheat;
+    padding: 7px 11px;
+    
+}
+
+.btn.correct {
+    --hue: var(--hue-correct);
+    color: black;
+}
+
+.btn.wrong {
+    --hue: var(--hue-wrong);
 }
