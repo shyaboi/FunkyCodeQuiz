@@ -34,6 +34,7 @@ var answerBtnsEl = document.getElementById('answerBtns')
 var qIndex
 var qEl = document.getElementById('question')
 let qShuffle
+var nexBtn = document.getElementById('nxtBtn')
 // --------------------------------------------------------------------------------------------------------------
 // start button even listener
 startBtn.addEventListener('click', quizStart)
@@ -54,11 +55,14 @@ function quizStart() {
 
 // next question function
 function nextQuest(){
+    resetJumbo()
     qPop(qShuffle[qIndex])        
     }
 // question and answer box text replacement
 function qPop(question){
+    // replace q el, with q array index'
     qEl.innerText = question.question
+    // for each answer loop to replace answers with new ones in array
     question.answers.forEach(answer => {
         let button = document.createElement('button')
         button.innerText = answer.text
@@ -71,9 +75,25 @@ function qPop(question){
     })
 }
 
-function answerSelec(e){
-
+function resetJumbo() {
+    nxtBtn.classList.add('hide')
+    while (answerBtnsEl.firstChild) {
+        answerBtnsEl.removeChild
+        (answerBtnsEl.firstChild)
+    }
 }
+
+function answerSelec(e){
+    const selBtn = e.target
+    const correct = selBtn.dataset.correct
+    correctStatus(document.body, correct)
+    Array.from(answerBtnsEl.children).forEach(button => {
+        correctStatus(button, button.dataset.correct)
+    })
+    nxtBtn.classList.remove('hide')
+}
+
+function correctStatus(){}
 
 var questions = [
     {
