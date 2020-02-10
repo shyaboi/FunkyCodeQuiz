@@ -36,8 +36,12 @@ var qEl = document.getElementById('question')
 let qShuffle
 var nexBtn = document.getElementById('nxtBtn')
 // --------------------------------------------------------------------------------------------------------------
-// start button even listener
+// start/next button even listener
 startBtn.addEventListener('click', quizStart)
+nxtBtn.addEventListener('click', () => {
+    qIndex++
+    nextQuest()
+})
 // quiz start button function
 function quizStart() {
     // hide start/next btn
@@ -90,7 +94,13 @@ function answerSelec(e){
     Array.from(answerBtnsEl.children).forEach(button => {
         correctStatus(button, button.dataset.correct)
     })
+    if (qShuffle.length > qIndex +1){
     nxtBtn.classList.remove('hide')
+    } else {
+        prompt('enter your initials champ!')
+    startBtn.innerText = 'Restart Test'
+    startBtn.classList.remove('hide')
+    }
 }
 
 function correctStatus(){}
