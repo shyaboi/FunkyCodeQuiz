@@ -51,7 +51,6 @@ nxtBtn.addEventListener('click', () => {
 function quizStart() {
     // hide start/next btn
     startBtn.classList.add('hide')
-    nxtBtn.classList.add('hide')
     // shuffle the question array
     qShuffle = questions.sort(()=> Math.random() - 5)
     // set question index
@@ -102,12 +101,14 @@ function answerSelec(e){
     if (qShuffle.length > qIndex +1){
     nxtBtn.classList.remove('hide')
     } else {
+        // game finish promt
         var initials = prompt('enter your initials champ!')
+        // score amalg
         highScore = initials + ":" + score
-        localStorage.setItem("High Score:", highScore)
+        // local storage high score saved
+        localStorage.setItem("Name: High Score", highScore)
         console.log(highScore)
-    startBtn.innerText = 'Restart Test'
-    startBtn.classList.remove('hide')
+        window.location.href = "index.html";
     }
 }
 
