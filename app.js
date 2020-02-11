@@ -14,7 +14,8 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
         // if timer runs out
         if (--timer < 0) {
-            prompt('you done son!, enter your initials:')
+            alert('Oof')
+            window.location.href = "index.html";
         }
     }, 1000);
 }
@@ -38,7 +39,8 @@ var nexBtn = document.getElementById('nxtBtn')
 var score = 0;
 var body = document.getElementById('aKey')
 var scoreD = document.getElementById('score')
-
+var nameArr = []
+var scoreArr = []
 // --------------------------------------------------------------------------------------------------------------
 // start/next button even listener
 startBtn.addEventListener('click', quizStart)
@@ -102,12 +104,16 @@ function answerSelec(e){
     nxtBtn.classList.remove('hide')
     } else {
         // game finish promt
-        var initials = prompt('enter your initials champ!')
+        nameArr[0] = prompt('enter your initials champ!')
         // score amalg
-        highScore = initials + ":" + score
+        // highScore = highScoreArr[0] + ":" + score
         // local storage high score saved
-        localStorage.setItem("Name: High Score", highScore)
-        console.log(highScore)
+        scoreArr[0] = score
+        localStorage.setItem('Name', JSON.stringify(nameArr))
+        localStorage.setItem('score', JSON.stringify(scoreArr))
+
+        alert('test')
+        // console.log(highScore)
         window.location.href = "index.html";
     }
 }
