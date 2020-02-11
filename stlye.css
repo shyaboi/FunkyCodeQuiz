@@ -20,8 +20,6 @@ body {
 }
 header {
     padding: 2%;
-    background: rgb(0,212,255);
-background: linear-gradient(90deg, rgba(0,212,255,1) 35%, rgba(161,239,255,1) 100%);
 width: 100%;
     position: absolute;
     top: 0;
@@ -29,24 +27,26 @@ width: 100%;
 }
 
 #timerSpan {
-    background: rgb(0,212,255);
-    background: linear-gradient(90deg, rgba(0,212,255,1) 35%, rgba(161,239,255,1) 100%);
     text-align: right;
     top: 0;
-    width: 100%;
+    width: 96%;
     position: absolute;
     height: 4%;
     padding: 2%;
-    border-bottom-width: 1%;
-    border-bottom-color: darkblue;
 }
 
 #testBox {
+    font-family: "Coda Caption", sans-serif;
     text-align: center;
-    background: rgb(0,212,255);
-    background: linear-gradient(90deg, rgba(0,212,255,1) 35%, rgba(161,239,255,1) 100%);
+    font-size: 35px;
+    color: rgb(0, 255, 255);
+    background-color: rgb(135, 135, 135);
+    text-shadow: rgba(57, 245, 0, 0.57) 2px 2px 2px;
+    text-align: center;
+    background: rgb(0,12,17);
+background: linear-gradient(90deg, rgba(0,12,17,1) 35%, rgba(0,0,0,1) 100%);
     box-sizing: border-box;
-    padding: 20px;
+    padding: 140px;
 }
 
 .hide {
@@ -70,7 +70,7 @@ width: 100%;
 .btn.wrong {
     --hue: var(--hue-wrong);
 }
-footer {
+/* footer {
     padding: 2%;
     background: rgb(0,212,255);
 background: linear-gradient(90deg, rgba(0,212,255,1) 35%, rgba(161,239,255,1) 100%);
@@ -78,4 +78,34 @@ width: 100%;
     position: absolute;
     bottom: 0;
     height: 4%;
+    
+} */
+
+#time {
+ font-weight: 700;
+font-size: 40px;
+color: rgb(255, 255, 255);
+background: rgb(0,12,17);
+background: linear-gradient(90deg, rgba(0,12,17,1) 35%, rgba(0,0,0,1) 100%);
+text-shadow: rgb(255, 255, 255) 0px 0px 5px, rgb(255, 255, 255) 0px 0px 10px, rgb(255, 255, 255) 0px 0px 15px, rgb(73, 255, 24) 0px 0px 20px, rgb(73, 255, 24) 0px 0px 30px, rgb(73, 255, 24) 0px 0px 40px, rgb(73, 255, 24) 0px 0px 55px, rgb(73, 255, 24) 0px 0px 75px;
+
+}
+#score {
+    text-align: center;
+    position: absolute;
+    bottom: 4%;
+    height: 4%;
+    width: 100%;
+font-weight: 700;
+font-size: 40px;
+color: rgb(255, 255, 255);
+background: rgb(0,12,17);
+background: linear-gradient(90deg, rgba(0,12,17,1) 35%, rgba(0,0,0,1) 100%);
+text-shadow: rgb(255, 255, 255) 0px 0px 5px, rgb(255, 255, 255) 0px 0px 10px, rgb(255, 255, 255) 0px 0px 15px, rgb(73, 255, 24) 0px 0px 20px, rgb(73, 255, 24) 0px 0px 30px, rgb(73, 255, 24) 0px 0px 40px, rgb(73, 255, 24) 0px 0px 55px, rgb(73, 255, 24) 0px 0px 75px;
+
+}
+
+#mainStart {
+    top: 50%;
+    right: 50%;
 }
