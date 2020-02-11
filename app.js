@@ -54,7 +54,6 @@ function quizStart() {
     qShuffle = questions.sort(()=> Math.random() - 5)
     // set question index
     qIndex = 0
-    score = 0
     // remove hidden class on question and asnswers
     aContainerEl.classList.remove('hide')
 // finally exe next questions function
@@ -72,18 +71,17 @@ function qPop(question){
     qEl.innerText = question.question
     // for each answer loop to replace answers with new ones in array
     question.answers.forEach(answer => {
-        let button = document.createElement('button')
+        var button = document.createElement('button')
         button.innerText = answer.text
         button.classList.add('btn')
         if (answer.correct) {
             button.dataset.correct = answer.correct
-            score++;
         }
         button.addEventListener('click', answerSelec)
         answerBtnsEl.appendChild(button)
     })
 }
-
+// reset questions function
 function resetJumbo() {
     nxtBtn.classList.add('hide')
     while (answerBtnsEl.firstChild) {
@@ -91,14 +89,13 @@ function resetJumbo() {
         (answerBtnsEl.firstChild)
     }
 }
-
+// answer selections
 function answerSelec(e){
     var selBtn = e.target
     var correct = selBtn.dataset.correct
     correctStatus(document.body, correct)
     Array.from(answerBtnsEl.children).forEach(button => {
         correctStatus(button, button.dataset.correct)
-        score++
     })
     if (qShuffle.length > qIndex +1){
     nxtBtn.classList.remove('hide')
@@ -122,19 +119,22 @@ function correctStatus(el, correct){
 
     }
 }
-
-function checkAnswer(){
-    nxtBtn.addEventListener('click', checkAnswer)
-    if(document.body.classList.contains('my-class-name')){
+// check answer function....finally working.
+    function checkAnswer() {
+    //     alert('test')
+    //     document.body.classList.contains('correct')
+    //     score++;   
+    if( document.body.className.match('correct') ) { 
         score++
+        alert('test')
+        console.log(score)
+     }
     }
-   
-}
- console.log(score)
+
+
  function clearCS(element) {
     element.classList.remove('correct')
     element.classList.remove('wrong')
-
 }
 var questions = [
     {
@@ -184,3 +184,4 @@ var questions = [
 ]
 
 
+console.log(score)
