@@ -1,4 +1,4 @@
-// timer func stolen from this fella https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer cause i cant maths and a simple countdown that i can do was lame 
+// timer func stolen from this fella https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer cause i cant maths like this and a simple countdown that i can do was lame 
 function startTimer(duration, display) {
     // vars
     var timer = duration,
@@ -38,6 +38,7 @@ var nexBtn = document.getElementById('nxtBtn')
 var score = 0;
 var body = document.getElementById('aKey')
 var scoreD = document.getElementById('score')
+
 // --------------------------------------------------------------------------------------------------------------
 // start/next button even listener
 startBtn.addEventListener('click', quizStart)
@@ -101,7 +102,10 @@ function answerSelec(e){
     if (qShuffle.length > qIndex +1){
     nxtBtn.classList.remove('hide')
     } else {
-        prompt('enter your initials champ!')
+        var initials = prompt('enter your initials champ!')
+        highScore = initials + ":" + score
+        localStorage.setItem("High Score:", highScore)
+        console.log(highScore)
     startBtn.innerText = 'Restart Test'
     startBtn.classList.remove('hide')
     }
@@ -127,9 +131,7 @@ function correctStatus(el, correct){
     //     score++;   
     if( document.body.className.match('correct') ) { 
         score++
-        alert('test')
         scoreD.innerText = score
-        console.log(score)
      }
     }
 // check answer function....finally working.----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
