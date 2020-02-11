@@ -41,6 +41,19 @@ var body = document.getElementById('aKey')
 var scoreD = document.getElementById('score')
 var nameArr = []
 var scoreArr = []
+function init() {
+    var storedName = JSON.parse(localStorage.getItem("Name"))
+    if (storedName !== null)
+    nameArr = storedName
+    var storedScore = JSON.parse(localStorage.getItem("score"))
+    if (storedScore !== null)
+    scoreArr = storedScore
+}
+function storedNS(){
+    localStorage.setItem("Name", JSON.stringify(nameArr))
+    localStorage.setItem("score", JSON.stringify(scoreArr))
+
+}
 // --------------------------------------------------------------------------------------------------------------
 // start/next button even listener
 startBtn.addEventListener('click', quizStart)
@@ -61,6 +74,7 @@ function quizStart() {
     aContainerEl.classList.remove('hide')
 // finally exe next questions function
     nextQuest()
+    // storedNS()
 }
 
 // next question function
@@ -104,17 +118,20 @@ function answerSelec(e){
     nxtBtn.classList.remove('hide')
     } else {
         // game finish promt
+
         nameArr[0] = prompt('enter your initials champ!')
         // score amalg
         // highScore = highScoreArr[0] + ":" + score
         // local storage high score saved
-        scoreArr[0] = score
-        localStorage.setItem('Name', JSON.stringify(nameArr))
-        localStorage.setItem('score', JSON.stringify(scoreArr))
-
-        alert('test')
-        // console.log(highScore)
-        window.location.href = "index.html";
+       var scorage = score
+       
+       // console.log(highScore)
+       nameArr.push(name)
+       scoreArr.push(scorage)
+       localStorage.setItem('Name', JSON.stringify(nameArr))
+       localStorage.setItem('score', JSON.stringify(scoreArr))
+        alert(name + ':' + scorage)
+        window.location.href = "highScores.html";
     }
 }
 
