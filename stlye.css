@@ -70,3 +70,12 @@ width: 100%;
 .btn.wrong {
     --hue: var(--hue-wrong);
 }
+footer {
+    padding: 2%;
+    background: rgb(0,212,255);
+background: linear-gradient(90deg, rgba(0,212,255,1) 35%, rgba(161,239,255,1) 100%);
+width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 4%;
+}

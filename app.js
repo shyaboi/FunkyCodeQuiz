@@ -1,4 +1,4 @@
-// timer func
+// timer func stolen from this fella https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer cause i cant maths and a simple countdown that i can do was lame 
 function startTimer(duration, display) {
     // vars
     var timer = duration,
@@ -37,6 +37,7 @@ let qShuffle
 var nexBtn = document.getElementById('nxtBtn')
 var score = 0;
 var body = document.getElementById('aKey')
+var scoreD = document.getElementById('score')
 // --------------------------------------------------------------------------------------------------------------
 // start/next button even listener
 startBtn.addEventListener('click', quizStart)
@@ -119,7 +120,7 @@ function correctStatus(el, correct){
 
     }
 }
-// check answer function....finally working.
+// check answer function....finally working.----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     function checkAnswer() {
     //     alert('test')
     //     document.body.classList.contains('correct')
@@ -127,9 +128,11 @@ function correctStatus(el, correct){
     if( document.body.className.match('correct') ) { 
         score++
         alert('test')
+        scoreD.innerText = score
         console.log(score)
      }
     }
+// check answer function....finally working.----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
  function clearCS(element) {
@@ -182,6 +185,3 @@ var questions = [
 ]
 },
 ]
-
-
-console.log(score)
